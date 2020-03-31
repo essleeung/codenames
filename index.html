@@ -5,22 +5,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Codenames</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-<header>
-    <nav class="navbar">
-        <h1 class="navbar-brand">codenames</h1>
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a href="./rules.html" class="nav-link"></a>
-            </li>
-        </ul>
-    </nav>
-</header>    
-   
-<script src="./js/script.js"></script>
+    <header class="container-fluid">
+        <nav class="navbar navbar-expand-lg">
+            <h1 class="h1 navbar-brand">codenames</h1>
+            <div class="navbar-nav nav ml-auto">
+                <a class="nav-item pr-3 pt-2" href="./rules.html">Rules</a>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-info">
+                        <input type="radio" name="view" class="nav-item" id="spymaster-mode"
+                            aria-pressed="true">Spymaster
+                    </label>
+                    <label class="btn btn-info">
+                        <input type="radio" name="view" class="nav-item" id="player-mode">Player
+                    </label>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="game-board container">
+        <div class="row mt-5">
+            <div id="box1" class="col m-2 py-5 px-2"></div>
+            <div id="box2" class="col m-2 py-5 px-2"></div>
+            <div id="box3" class="col m-2 py-5 px-2"></div>
+            <div id="box4" class="col m-2 py-5 px-2"></div>
+            <div id="box5" class="col m-2 py-5 px-2"></div>
+            <div class="w-100"></div>
+            <div id="box6" class="col m-2 py-5 px-2"></div>
+            <div id="box7" class="col m-2 py-5 px-2"></div>
+            <div id="box8" class="col m-2 py-5 px-2"></div>
+            <div id="box9" class="col m-2 py-5 px-2"></div>
+            <div id="box10" class="col m-2 py-5 px-2"></div>
+            <div class="w-100"></div>
+            <div id="box11" class="col m-2 py-5 px-2"></div>
+            <div id="box12" class="col m-2 py-5 px-2"></div>
+            <div id="box13" class="col m-2 py-5 px-2"></div>
+            <div id="box14" class="col m-2 py-5 px-2"></div>
+            <div id="box15" class="col m-2 py-5 px-2"></div>
+            <div class="w-100"></div>
+            <div id="box16" class="col m-2 py-5 px-2"></div>
+            <div id="box17" class="col m-2 py-5 px-2"></div>
+            <div id="box18" class="col m-2 py-5 px-2"></div>
+            <div id="box19" class="col m-2 py-5 px-2"></div>
+            <div id="box20" class="col m-2 py-5 px-2"></div>
+            <div class="w-100"></div>
+            <div id="box21" class="col m-2 py-5 px-2"></div>
+            <div id="box22" class="col m-2 py-5 px-2"></div>
+            <div id="box23" class="col m-2 py-5 px-2"></div>
+            <div id="box24" class="col m-2 py-5 px-2"></div>
+            <div id="box25" class="col m-2 py-5 px-2"></div>
+        </div>
+        <div class="turn-container float-left">
+            <p>It's <span id='color-turn'></span> turn!</p>
+        </div>
+        <div class="remaining-cards float-right"
+            <p>Remaining cards: <span id="Red"></span> - <span id="blue"></span></p>
+        </div>
+    </div>
+
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
