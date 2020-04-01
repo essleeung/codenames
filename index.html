@@ -19,53 +19,52 @@
                 <a class="nav-item pr-3 pt-2" href="./rules.html">Rules</a>
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label class="btn btn-info">
-                        <input type="radio" name="view" class="nav-item" id="spymaster-mode"
-                            aria-pressed="true">Spymaster
+                        <input type="radio" name="view" class="nav-item" id="spymaster-mode">Spymaster
                     </label>
                     <label class="btn btn-info">
-                        <input type="radio" name="view" class="nav-item" id="player-mode">Player
+                        <input type="radio" name="view" class="nav-item" id="player-mode" checked>Player
                     </label>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="game-board container">
-        <div class="row mt-5">
-            <div id="box1" class="col m-2 py-5 px-2"></div>
-            <div id="box2" class="col m-2 py-5 px-2"></div>
-            <div id="box3" class="col m-2 py-5 px-2"></div>
-            <div id="box4" class="col m-2 py-5 px-2"></div>
-            <div id="box5" class="col m-2 py-5 px-2"></div>
+    <div class="container">
+        <div class="row mt-5 text-center text-uppercase" id='board'>
+            <div id="1" class="col m-2 py-5 px-2"></div>
+            <div id="2" class="col m-2 py-5 px-2"></div>
+            <div id="3" class="col m-2 py-5 px-2"></div>
+            <div id="4" class="col m-2 py-5 px-2"></div>
+            <div id="5" class="col m-2 py-5 px-2"></div>
             <div class="w-100"></div>
-            <div id="box6" class="col m-2 py-5 px-2"></div>
-            <div id="box7" class="col m-2 py-5 px-2"></div>
-            <div id="box8" class="col m-2 py-5 px-2"></div>
-            <div id="box9" class="col m-2 py-5 px-2"></div>
-            <div id="box10" class="col m-2 py-5 px-2"></div>
+            <div id="6" class="col m-2 py-5 px-2"></div>
+            <div id="7" class="col m-2 py-5 px-2"></div>
+            <div id="8" class="col m-2 py-5 px-2"></div>
+            <div id="9" class="col m-2 py-5 px-2"></div>
+            <div id="10" class="col m-2 py-5 px-2"></div>
             <div class="w-100"></div>
-            <div id="box11" class="col m-2 py-5 px-2"></div>
-            <div id="box12" class="col m-2 py-5 px-2"></div>
-            <div id="box13" class="col m-2 py-5 px-2"></div>
-            <div id="box14" class="col m-2 py-5 px-2"></div>
-            <div id="box15" class="col m-2 py-5 px-2"></div>
+            <div id="11" class="col m-2 py-5 px-2"></div>
+            <div id="12" class="col m-2 py-5 px-2"></div>
+            <div id="13" class="col m-2 py-5 px-2"></div>
+            <div id="14" class="col m-2 py-5 px-2"></div>
+            <div id="15" class="col m-2 py-5 px-2"></div>
             <div class="w-100"></div>
-            <div id="box16" class="col m-2 py-5 px-2"></div>
-            <div id="box17" class="col m-2 py-5 px-2"></div>
-            <div id="box18" class="col m-2 py-5 px-2"></div>
-            <div id="box19" class="col m-2 py-5 px-2"></div>
-            <div id="box20" class="col m-2 py-5 px-2"></div>
+            <div id="16" class="col m-2 py-5 px-2"></div>
+            <div id="17" class="col m-2 py-5 px-2"></div>
+            <div id="18" class="col m-2 py-5 px-2"></div>
+            <div id="19" class="col m-2 py-5 px-2"></div>
+            <div id="20" class="col m-2 py-5 px-2"></div>
             <div class="w-100"></div>
-            <div id="box21" class="col m-2 py-5 px-2"></div>
-            <div id="box22" class="col m-2 py-5 px-2"></div>
-            <div id="box23" class="col m-2 py-5 px-2"></div>
-            <div id="box24" class="col m-2 py-5 px-2"></div>
-            <div id="box25" class="col m-2 py-5 px-2"></div>
+            <div id="21" class="col m-2 py-5 px-2"></div>
+            <div id="22" class="col m-2 py-5 px-2"></div>
+            <div id="23" class="col m-2 py-5 px-2"></div>
+            <div id="24" class="col m-2 py-5 px-2"></div>
+            <div id="25" class="col m-2 py-5 px-2"></div>
         </div>
         <div class="turn-container float-left">
-            <p>It's <span id='color-turn'></span> turn!</p>
+            <p class="text-uppercase">It's <span id="currentPlayer"></span> turn!</p>
         </div>
         <div class="remaining-cards float-right"
-            <p>Remaining cards: <span id="Red"></span> - <span id="blue"></span></p>
+            <p>Remaining cards: <span id="blue" class="blue-font"></span> - <span id="red" class="red-font"></span></p>
         </div>
     </div>
 
@@ -73,7 +72,10 @@
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="./js/words.js"></script> -->
     <script src="./js/script.js"></script>
+    <script src="./js/toggle.js"></script>
+    <!-- <script src="./js/words.js"></script> -->
 </body>
 
 </html>

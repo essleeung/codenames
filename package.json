@@ -1,0 +1,25 @@
+{
+  "name": "codenames",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "dependencies": {
+    "nodemon": "^2.0.2",
+    "requirejs": "^2.3.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node js/script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/essleeung/codenames.git"
+  },
+  "author": "Sharon Lee",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/essleeung/codenames/issues"
+  },
+  "homepage": "https://github.com/essleeung/codenames#readme"
+}

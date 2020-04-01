@@ -3,6 +3,24 @@
   }
 .col {
     border: 1px solid grey; 
+    box-shadow: 2px 1px 0 grey;
     border-radius: 10px;
+    background-color: #F8DFD3;
+    
+}
+.blue-font {
+  color: royalblue;
+}
+.red-font {
+  color: crimson;
+}
 
+.spy-blue {
+  border: 3px solid royalblue;
+}
+.spy-red {  
+  border: 3px solid crimson;
+}
+.spy-assassin {
+  border: 3px solid black;
 }
