@@ -16,7 +16,8 @@
         <nav class="navbar navbar-expand-lg">
             <h1 class="h1 navbar-brand">codenames</h1>
             <div class="navbar-nav nav ml-auto">
-                <a class="nav-item pr-3 pt-2" href="./rules.html">Rules</a>
+                <a class="nav-item pr-3 pt-2" href="./rules.html" target="_blank">Rules</a>
+                <button type="reset" class="nav-item btn btn-outline-info mx-2" id="reset">New Game</button>
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label class="btn btn-info">
                         <input type="radio" name="view" class="nav-item" id="spymaster-mode">Spymaster
@@ -30,35 +31,35 @@
     </header>
     <div class="container">
         <div class="row mt-5 text-center text-uppercase" id='board'>
+            <div id="0" class="col m-2 py-5 px-2"></div>
             <div id="1" class="col m-2 py-5 px-2"></div>
             <div id="2" class="col m-2 py-5 px-2"></div>
             <div id="3" class="col m-2 py-5 px-2"></div>
             <div id="4" class="col m-2 py-5 px-2"></div>
-            <div id="5" class="col m-2 py-5 px-2"></div>
             <div class="w-100"></div>
+            <div id="5" class="col m-2 py-5 px-2"></div>
             <div id="6" class="col m-2 py-5 px-2"></div>
             <div id="7" class="col m-2 py-5 px-2"></div>
             <div id="8" class="col m-2 py-5 px-2"></div>
             <div id="9" class="col m-2 py-5 px-2"></div>
-            <div id="10" class="col m-2 py-5 px-2"></div>
             <div class="w-100"></div>
+            <div id="10" class="col m-2 py-5 px-2"></div>
             <div id="11" class="col m-2 py-5 px-2"></div>
             <div id="12" class="col m-2 py-5 px-2"></div>
             <div id="13" class="col m-2 py-5 px-2"></div>
             <div id="14" class="col m-2 py-5 px-2"></div>
-            <div id="15" class="col m-2 py-5 px-2"></div>
             <div class="w-100"></div>
+            <div id="15" class="col m-2 py-5 px-2"></div>
             <div id="16" class="col m-2 py-5 px-2"></div>
             <div id="17" class="col m-2 py-5 px-2"></div>
             <div id="18" class="col m-2 py-5 px-2"></div>
             <div id="19" class="col m-2 py-5 px-2"></div>
-            <div id="20" class="col m-2 py-5 px-2"></div>
             <div class="w-100"></div>
+            <div id="20" class="col m-2 py-5 px-2"></div>
             <div id="21" class="col m-2 py-5 px-2"></div>
             <div id="22" class="col m-2 py-5 px-2"></div>
             <div id="23" class="col m-2 py-5 px-2"></div>
             <div id="24" class="col m-2 py-5 px-2"></div>
-            <div id="25" class="col m-2 py-5 px-2"></div>
         </div>
         <div class="turn-container float-left">
             <p class="text-uppercase">It's <span id="currentPlayer"></span> turn!</p>
@@ -73,9 +74,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <!-- <script src="./js/words.js"></script> -->
-    <script src="./js/script.js"></script>
+    <script src="./js/game.js"></script>
     <script src="./js/toggle.js"></script>
-    <!-- <script src="./js/words.js"></script> -->
 </body>
 
 </html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codenames Rules</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="pt-3">Codenames Rules</h1>
+        <p>Adapted from <a class="text-info" href="https://czechgames.com/files/rules/codenames-rules-en.pdf" target="_blank">official instructions.</a></p>
+        <h3>Game overview</h3>
+        <ul>
+            <li>Each game requires a minimum of 4 players. Each team will choose a spymaster and the remaining players will
+                be
+                the field operatives. </li>
+            <li>The starting team is randomly determined. They will have 9 words to guess and will give the first clue
+                of
+                the
+                game.</li>
+            <li>The opposing team will have 8 cards to guess.</li>
+            <li>Only the spymasters for each team will know the secret identities of the 25 agents. This can be
+                activated by
+                toggling between player & spymaster view. Their teammates only know the agents by their codenames.</li>
+            <li>Spymasters take turns giving one-word clues. A clue can relate to multiple words on the board. The field
+                operatives try to guess which words their spymaster meant. The first team to contact all their agents
+                win
+                the game.</li>
+        </ul>
+        <h3>Giving a clue</h3>
+        <ul>
+            <li>If you are the spymaster, you are trying to think of a one-word clue that relates to the codenames your
+                team is trying to guess.</li>
+            <li>You clue must only be <em class="text-uppercase">one word</em> followed by how many codenames are
+                related to your clue. Double check to ensure your clue doesn't relate to the assassin codename.</li>
+            <li class="text-info">Example: Two of your words are NUT and BARK. Both of these grow on trees, so you say tree: 2.</li>
+        </ul>
+        <h3>Making contact</h3>
+        <ul>
+            <li>When the spymaster gives a clue, his or her field operatives try to figure out what it means. They can debate amongst themselves.</li>
+            <li>Field operatives indicate their official guess by clicking on one of the codenames.</li>
+            <ul>
+                <li>If the field operative selects <span class="text-success">a card belonging to his/her team</span>, they get <span class="text-success">another guess.</span></li>
+                <li>If the field operatives selects <span class="text-warning">an innocent bystander</span> or <span class="text-warning">card belonging to the other team</span>, this <span class="text-warning">ends their turn</span></li>
+                <li>If the field operative selects <span class="text-danger">the assassin.</span> This ends the game! <span class="text-danger">The team that contacted the assassin loses.</span></li>
+            </ul>
+            <li>The field operatives must always make at least one guess. Any wrong guesses ends the turn immediately. If the field opeartive guesses correctly, they can keep guessing.</li>
+            <li class="text-info">Example: Red team's first clue was <em>tree, 2</em>. The red opeartive wanted to guess ORANGE and NUT. ORANGE was an innocent bystander and red's turn ends. On the next turn, the red spymaster's clue is <em>river, 3</em>. The red team selects AMAZON, BED and she's unsure of the third <em>river</em> word. Instead she selects NUT from the previous turn's clue. NUT is correct. Red team got 3 guesses correct, red team is allowed one extra final guess. They can attempt the third <em>river</em> word or second <em>tree</em> word.</li>
+        </ul>
+        <h3>Ending the game</h3>
+        <ul>
+            <li>The game ends when one team has guessed all their words correctly. Alternately, a game can end early if a field operative makes contact with the assassin.</li>
+        </ul>
+    </div>
+</body>
+
+</html>

@@ -1,28 +1,32 @@
-var gameWords = []
-// read text file into array, shuffle all words and return array
 var fs = require('fs')
+var gameWords = []
+//Function to shuffle words into new array 
+const shuffle = (array) => {
+    let newArray = []
+    while (newArray.length < array.length) {
+      let index = Math.floor(Math.random() * array.length)
+      if (!newArray.includes(array[index])) {
+        newArray.push(array[index])
+      }
+    } return newArray
+  }
+
+// read text file into array, shuffle all words and return array
 const getWords = () => {
-    fs.readFile(__dirname + '/../words.txt', 'utf8', (err, data) => {
-        if (err) {
-            console.log(err)
-        } let allWords = data.toString().split('\n')
-        console.log(allWords)
-    })
+    let data = ''
+    try {
+        data = fs.readFileSync(__dirname + '/../words.txt', 'utf8')
+    }
+    catch (err) {
+        console.log('error!')
+        //default words to start game in case file sync error
+        return ['fridge', 'banana', 'stars', 'laser', 'island', 'mouse', 'Hawaii', 'lamp','hi', 'cat', 'dog', 'zebra', 'fence', 'comb', 'tropics', 'mountain', 'pasta', 'fever', 'needle', 'cup', 'keys', 'mirror', 'tree', 'fish', 'tulip']
+    }
+    let allWords = data.toString().split('\n')
+    //return a subset of 25 shuffled words
+    return shuffle(allWords).splice(0,25)
 }
 
-//function to print words onto board
-const printWords = () => {
-    for (let i = 0; i < gameWords.length; i++) {
-        board[i].textContent = gameWords[i];
-    }
-}
+gameWords = getWords()
+console.log('Game words are:', gameWords)
 
-//shuffle words into new array 
-const shuffle = (words) => {
-  while (newWords.length < 25) {
-    let index = Math.floor(Math.random() * words.length)
-    if (!newWords.includes(words[index])) {
-      newWords.push(words[index])
-    }
-  } return newWords
-}

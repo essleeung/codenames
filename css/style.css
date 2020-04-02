@@ -2,7 +2,7 @@
     box-sizing: border-box;
   }
 .col {
-    border: 1px solid grey; 
+  border: 6px solid whitesmoke; 
     box-shadow: 2px 1px 0 grey;
     border-radius: 10px;
     background-color: #F8DFD3;
@@ -16,11 +16,12 @@
 }
 
 .spy-blue {
-  border: 3px solid royalblue;
+  border: 6px solid royalblue;
 }
 .spy-red {  
-  border: 3px solid crimson;
+  border: 6px solid crimson;
 }
 .spy-assassin {
-  border: 3px solid black;
+  border: 6px solid black;
 }
+
