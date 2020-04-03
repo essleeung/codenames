@@ -1,9 +1,8 @@
-
 // var gameWords = ["fridge", "banana", "stars", "laser", "island", "mouse", "Hawaii", "lamp", "hi", "cat", "dog", "zebra", "fence", "comb", "tropics", "mountain", "pasta", "fever", "needle", "cup", "keys", "mirror", "tree", "fish", "tulip"]
 var board = document.getElementsByClassName("col")
 var currentPlayer = ""
 var pickedWords = []
-var newWords =[]
+var assassin, bystander
 
 //team constructor
 class Team {
@@ -35,6 +34,7 @@ const printWords = () => {
 // }
 //set up words for each team
 const setBoard = (color, color2) => {
+  console.log(newWords)
   color.words = newWords.splice(0, 9)
   color.remainingCards = 9
   color2.words = newWords.splice(0, 8)
@@ -65,8 +65,8 @@ const updateRemainingCards = () => {
 //game start function
 const startGame = () => {
   printWords()
-  newWords = [...gameWords]
-  gameWords = shuffle(gameWords)
+  // newWords = [...gameWords]
+  // gameWords = shuffle(gameWords)
   //randomize who goes first & set game board accordingly. first team gets 9 cards, 2nd team gets 8, 7 for the bystander & 1 card for the assassin
   if (Math.random() < 0.5) {
     currentPlayer = "red"
@@ -85,10 +85,13 @@ socket.on('get words', words => {
   gameWords = words
   // console.log("words received!", words)
 })
-
+socket.on('new words', words => {
+  newWords = words
+  console.log("received  new words:", newWords)
+})
 
 //start game on dom content load
 document.addEventListener("DOMContentLoaded", () => {
   socket.emit('get words')
-  socket.emit('get shuffled')
+  socket.emit('new words')
 })
