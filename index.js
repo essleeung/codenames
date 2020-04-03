@@ -8,13 +8,14 @@ var newWords = []
 // Configure http and socket.io
 let http = require('http').Server(app)
 let io = require('socket.io')(http)
-app.use(express.static("public"))
+app.use(express.static('public'))
 
 // Define home route
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html')
 })
-//shuffle function
+
+// shuffle function
 const shuffle = (array) => {
   let newArray = []
   while (newArray.length < array.length) {
@@ -40,9 +41,10 @@ const getWords = () => {
   //return a subset of 25 shuffled words
   return shuffle(allWords).splice(0,25)
 }
-//these gamewords are for printing on the board 
+
+// these gamewords are for printing on the board
 gameWords = getWords()
-//this is another shuffled array to ensure teams don't get words in sequential order
+// this is another shuffled array to ensure teams don't get words in sequential order
 newWords = shuffle([...gameWords])
 
 
@@ -59,7 +61,7 @@ io.on('connection', socket => {
     console.log('newWords are:' + newWords)
     io.emit('new words', newWords)
   })
-  
+
   socket.on('card click', word => {
     // We've received a chat message event from one of our clients
     // Now, broadcast it to everyone

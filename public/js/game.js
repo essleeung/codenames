@@ -2,6 +2,8 @@
 var board = document.getElementsByClassName("col")
 var currentPlayer = ""
 var pickedWords = []
+var newWords = []
+var gameWords = []
 var assassin, bystander
 
 //team constructor
@@ -12,29 +14,20 @@ class Team {
     this.remainingCards = 0
   }
 }
-//create red & blue
+
+// create red & blue
 var red = new Team("red")
 var blue = new Team("blue")
 
-//function to print words onto board
+// function to print words onto board
 const printWords = () => {
   for (let i = 0; i < gameWords.length; i++) {
     board[i].textContent = gameWords[i];
   }
 }
-// shuffle words into new array 
-// const shuffle = (array) => {
-//   let newArray = []
-//   while (newArray.length < array.length) {
-//     let index = Math.floor(Math.random() * array.length)
-//     if (!newArray.includes(array[index])) {
-//       newArray.push(array[index])
-//     }
-//   } return newArray
-// }
+
 //set up words for each team
 const setBoard = (color, color2) => {
-  console.log(newWords)
   color.words = newWords.splice(0, 9)
   color.remainingCards = 9
   color2.words = newWords.splice(0, 8)
@@ -46,6 +39,7 @@ const setBoard = (color, color2) => {
   console.log(color)
   console.log(color2)
 }
+
 // function to update current player display
 const updatePlayer = () => {
   document.getElementById("currentPlayer").textContent = currentPlayer + "'s"
@@ -65,8 +59,6 @@ const updateRemainingCards = () => {
 //game start function
 const startGame = () => {
   printWords()
-  // newWords = [...gameWords]
-  // gameWords = shuffle(gameWords)
   //randomize who goes first & set game board accordingly. first team gets 9 cards, 2nd team gets 8, 7 for the bystander & 1 card for the assassin
   if (Math.random() < 0.5) {
     currentPlayer = "red"
@@ -79,19 +71,20 @@ const startGame = () => {
   updateRemainingCards()
 }
 
-
-//getting game words
+// getting game words
 socket.on('get words', words => {
-  gameWords = words
-  // console.log("words received!", words)
-})
-socket.on('new words', words => {
-  newWords = words
-  console.log("received  new words:", newWords)
+  gameWords = [...words]
 })
 
-//start game on dom content load
+socket.on('new words', words => {
+  newWords = [...words]
+})
+
+// start game on dom content load
 document.addEventListener("DOMContentLoaded", () => {
   socket.emit('get words')
   socket.emit('new words')
+
+  // add eventlistener to new game button
+  document.getElementById("reset").addEventListener("click", resetGame)
 })
