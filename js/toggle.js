@@ -1,32 +1,40 @@
-//function to change styles
-const changeStyle = (array, style) => {
-    for (let i=0; i < array.length; i++) {
-        indexOf = gameWords.indexOf(array[i])
-        document.getElementById(indexOf).setAttribute('class', "col m-2 py-5 px-2 " + style)
-        }
-} 
-//function to remove styles
-const removeStyle = (array, style) => {
-    for (let i=0; i < array.length; i++) {
-        indexOf = gameWords.indexOf(array[i])
-        document.getElementById(indexOf).setAttribute('class', "col m-2 py-5 px-2 ")
-        }
-} 
+// //function to change styles
+// const changeStyle = (array, style) => {
+//     for (let i = 0; i < array.length; i++) {
+//         indexOf = gameWords.indexOf(array[i])
+//         document.getElementById(indexOf).setAttribute("class", style)
+//     }
+// }
 
-//toggle spymaster view
+//toggle spymaster view if cards haven't been selected
 const toggleSpy = () => {
-    changeStyle(red.words, 'spy-red')
-    changeStyle(blue.words, 'spy-blue')
-    changeStyle(assassin, 'spy-assassin')
+    for (let i = 0; i < board.length; i++) {
+        if (!pickedWords.includes(gameWords[i])) {
+            if (red.words.includes(gameWords[i])) {
+                board[i].setAttribute("class", "col m-2 py-5 px-2 spy-red")
+            } else if (blue.words.includes(gameWords[i])) {
+                board[i].setAttribute("class", "col m-2 py-5 px-2 spy-blue")
+            } else if ((assassin.includes(gameWords[i])) && (!bystander.includes(gameWords[i]))) {
+                board[i].setAttribute("class", "col m-2 py-5 px-2 spy-assassin")
+            }
+        }
+    }
 }
-//toggle player view
+
+
+//toggle player view if cards haven"t been selected
 const togglePlayer = () => {
-    removeStyle(gameWords, 'spy-red')
-    removeStyle(gameWords, 'spy-blue')
-    removeStyle(gameWords, 'spy-assassin')
+    for (let i = 0; i < board.length; i++) {
+        if (!pickedWords.includes(gameWords[i])) {
+            board[i].setAttribute("class", "col m-2 py-5 px-2")
+        }
+    }
 }
 
 //add event listener on toggle buttons
-document.getElementById('spymaster-mode').addEventListener('click', toggleSpy)
-document.getElementById('player-mode').addEventListener('click', togglePlayer)
+document.getElementById("spymaster-mode").addEventListener("click", toggleSpy)
+document.getElementById("player-mode").addEventListener("click", togglePlayer)
+
+
+
 

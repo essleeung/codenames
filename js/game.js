@@ -1,8 +1,9 @@
 // //TO REMOVE: while getting that sorted use this random array
-var gameWords = ['fridge', 'banana', 'stars', 'laser', 'island', 'mouse', 'Hawaii', 'lamp', 'hi', 'cat', 'dog', 'zebra', 'fence', 'comb', 'tropics', 'mountain', 'pasta', 'fever', 'needle', 'cup', 'keys', 'mirror', 'tree', 'fish', 'tulip']
-var board = document.getElementsByClassName('col')
-var currentPlayer = ''
+var gameWords = ["fridge", "banana", "stars", "laser", "island", "mouse", "Hawaii", "lamp", "hi", "cat", "dog", "zebra", "fence", "comb", "tropics", "mountain", "pasta", "fever", "needle", "cup", "keys", "mirror", "tree", "fish", "tulip"]
+var board = document.getElementsByClassName("col")
+var currentPlayer = ""
 var newWords = []
+var pickedWords = []
 
 //team constructor
 class Team {
@@ -13,8 +14,8 @@ class Team {
   }
 }
 //create red & blue
-var red = new Team('red')
-var blue = new Team('blue')
+var red = new Team("red")
+var blue = new Team("blue")
 
 //function to print words onto board
 const printWords = () => {
@@ -32,34 +33,6 @@ const shuffle = (array) => {
     }
   } return newArray
 }
-//game start function
-const startGame = () => {
-  printWords()
-  newWords = shuffle(gameWords)
-
-  //randomize who goes first & set game board accordingly. first team gets 9 cards, 2nd team gets 8, 7 for the bystander & 1 card for the assassin
-  if (Math.random() < 0.5) {
-    currentPlayer = 'red'
-    //set current player to match color
-    document.getElementById('currentPlayer').setAttribute('class', 'red-font')
-    setBoard(red, blue)
-  } else {
-    currentPlayer = 'blue'
-    document.getElementById('currentPlayer').setAttribute('class', 'blue-font')
-    setBoard(blue, red)
-  } //print current player onto board & remaining cards
-  document.getElementById('currentPlayer').textContent = currentPlayer + "'s"
-  document.getElementById('blue').textContent = blue.remainingCards
-  document.getElementById('red').textContent = red.remainingCards
-}
-
-//start game on dom content load
-document.addEventListener('DOMContentLoaded', startGame)
-
-//new game
-//TO DO: VERIFY ALL THE RESETS ARE CORRECT
-document.getElementById('reset').addEventListener('click', startGame)
-
 //set up words for each team
 const setBoard = (color, color2) => {
   color.words = newWords.splice(0, 9)
@@ -73,3 +46,40 @@ const setBoard = (color, color2) => {
   console.log(color)
   console.log(color2)
 }
+// function to update current player display
+const updatePlayer = () => {
+  document.getElementById("currentPlayer").textContent = currentPlayer + "'s"
+  if (currentPlayer == "red") {
+    //set current player to match color
+    document.getElementById("currentPlayer").setAttribute("class", "red-font")
+  } else {
+    document.getElementById("currentPlayer").setAttribute("class", "blue-font")
+  }
+}
+//function to update remaining card display
+const updateRemainingCards = () => {
+  document.getElementById("blue").textContent = blue.remainingCards
+  document.getElementById("red").textContent = red.remainingCards
+}
+
+//game start function
+const startGame = () => {
+  printWords()
+  newWords = shuffle(gameWords)
+
+  //randomize who goes first & set game board accordingly. first team gets 9 cards, 2nd team gets 8, 7 for the bystander & 1 card for the assassin
+  if (Math.random() < 0.5) {
+    currentPlayer = "red"
+    setBoard(red, blue)
+  } else {
+    currentPlayer = "blue"
+
+    setBoard(blue, red)
+  } //print current player onto board & remaining cards
+  updatePlayer()
+  updateRemainingCards()
+}
+
+//start game on dom content load
+document.addEventListener("DOMContentLoaded", startGame)
+

@@ -14,10 +14,9 @@
 <body>
     <header class="container-fluid">
         <nav class="navbar navbar-expand-lg">
-            <h1 class="h1 navbar-brand">codenames</h1>
+            <h1 class="navbar-brand">codenames</h1>
             <div class="navbar-nav nav ml-auto">
-                <a class="nav-item pr-3 pt-2" href="./rules.html" target="_blank">Rules</a>
-                <button type="reset" class="nav-item btn btn-outline-info mx-2" id="reset">New Game</button>
+                <a class="nav-item pr-3 pt-2" id="rules" href="./rules.html" target="_blank">Rules</a>
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label class="btn btn-info">
                         <input type="radio" name="view" class="nav-item" id="spymaster-mode">Spymaster
@@ -29,6 +28,9 @@
             </div>
         </nav>
     </header>
+    <div>
+        
+    </div>
     <div class="container">
         <div class="row mt-5 text-center text-uppercase" id='board'>
             <div id="0" class="col m-2 py-5 px-2"></div>
@@ -63,9 +65,12 @@
         </div>
         <div class="turn-container float-left">
             <p class="text-uppercase">It's <span id="currentPlayer"></span> turn!</p>
+            <p class="text-uppercase text-danger" id="msg"></p>
         </div>
-        <div class="remaining-cards float-right"
+        <div class="remaining-cards float-right text-right">
             <p>Remaining cards: <span id="blue" class="blue-font"></span> - <span id="red" class="red-font"></span></p>
+            <button class="btn btn-outline-info" id="next-player">Pass turn</button>
+            <button type="reset" class="nav-item btn btn-outline-info" id="reset">New Game</button>
         </div>
     </div>
 
@@ -76,6 +81,8 @@
     <!-- <script src="./js/words.js"></script> -->
     <script src="./js/game.js"></script>
     <script src="./js/toggle.js"></script>
+    <script src="./js/turn.js"></script>
+    <script src="./js/end.js"></script>
 </body>
 
 </html>
