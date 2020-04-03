@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -29,7 +29,7 @@
         </nav>
     </header>
     <div>
-        
+
     </div>
     <div class="container">
         <div class="row mt-5 text-center text-uppercase" id='board'>
@@ -70,7 +70,7 @@
         <div class="remaining-cards float-right text-right">
             <p>Remaining cards: <span id="blue" class="blue-font"></span> - <span id="red" class="red-font"></span></p>
             <button class="btn btn-outline-info" id="next-player">Pass turn</button>
-            <button type="reset" class="nav-item btn btn-outline-info" id="reset">New Game</button>
+            <button type="reset" class="nav-item btn btn-outline-info" id="reset">Start Game</button>
         </div>
     </div>
 
@@ -78,11 +78,12 @@
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <!-- <script src="./js/words.js"></script> -->
-    <script src="./js/game.js"></script>
-    <script src="./js/toggle.js"></script>
-    <script src="./js/turn.js"></script>
-    <script src="./js/end.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>let socket = io()</script>
+    <script src="/js/game.js"></script>
+    <script src="/js/toggle.js"></script>
+    <script src="/js/turn.js"></script>
+    <script src="/js/end.js"></script>
 </body>
 
 </html>

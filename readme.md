@@ -21,3 +21,6 @@ The field operatives must always make at least one guess. Any wrong guesses ends
 _Example: Red team's first clue was tree, 2. The red opeartive wanted to guess ORANGE and NUT. ORANGE was an innocent bystander and red's turn ends. On the next turn, the red spymaster's clue is river, 3. The red team selects AMAZON, BED and she's unsure of the third river word. Instead she selects NUT from the previous turn's clue. NUT is correct. Red team got 3 guesses correct, red team is allowed one extra final guess. They can attempt the third river word or second tree word._
 ## Ending the game
 The game ends when one team has guessed all their words correctly. Alternately, a game can end early if a field operative makes contact with the assassin.
+
+## Shoutouts!
+Thanks to [Jackson Owens] (https://github.com/jbowens) for the words list!

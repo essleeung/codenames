@@ -2,15 +2,17 @@
   "name": "codenames",
   "version": "1.0.0",
   "description": "",
-  "main": "script.js",
+  "main": "index.js",
   "dependencies": {
+    "express": "^4.17.1",
     "nodemon": "^2.0.2",
-    "requirejs": "^2.3.6"
+    "requirejs": "^2.3.6",
+    "socket.io": "^2.3.0"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node js/script.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
