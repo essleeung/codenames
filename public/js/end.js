@@ -8,11 +8,10 @@ const removeStyle = () => {
 //reset game function
 const resetGame = () => {
     pickedWords = []
-    newWords = []
     document.getElementById('msg').textContent = ""
     startGame()
     removeStyle()
-}
 
-//add eventlistener to new game button 
-document.getElementById("reset").addEventListener("click", resetGame)
+    // TODO: Get new gameWords/newWords
+    // This means separating the "start game" and "reset game" functionality
+}
