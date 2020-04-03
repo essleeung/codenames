@@ -43,7 +43,7 @@ const getWords = () => {
 //these gamewords are for printing on the board 
 gameWords = getWords()
 //this is another shuffled array to ensure teams don't get words in sequential order
-newWords = shuffle(gameWords)
+
 
 
 // Define socket settings (listeners)
@@ -55,10 +55,10 @@ io.on('connection', socket => {
     io.emit('get words', gameWords)
   })
 
-  socket.on('send new words',  () => {
-    console.log('newWords are:' + newWords)
-    io.emit('send new words', newWords)
-  })
+  // socket.on('send new words',  () => {
+  //   console.log('newWords are:' + newWords)
+  //   io.emit('send new words', newWords)
+  // })
   
   socket.on('card click', word => {
     // We've received a chat message event from one of our clients

@@ -65,7 +65,8 @@ const updateRemainingCards = () => {
 //game start function
 const startGame = () => {
   printWords()
-  newWords = gameWords
+  newWords = [...gameWords]
+  gameWords = shuffle(gameWords)
   //randomize who goes first & set game board accordingly. first team gets 9 cards, 2nd team gets 8, 7 for the bystander & 1 card for the assassin
   if (Math.random() < 0.5) {
     currentPlayer = "red"
@@ -85,11 +86,6 @@ socket.on('get words', words => {
   // console.log("words received!", words)
 })
 
-// getting shuffled gamewords 
-socket.on('send new words', newWords => {
-  newWords = newWords
-  console.log("shuffled words!", newWords)
-})
 
 //start game on dom content load
 document.addEventListener("DOMContentLoaded", () => {
