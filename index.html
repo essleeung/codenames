@@ -28,49 +28,47 @@
             </div>
         </nav>
     </header>
-    <div>
-
-    </div>
-    <div class="container">
+    <div id="grid" class="container">
         <div class="row mt-5 text-center text-uppercase" id='board'>
-            <div id="0" class="col m-2 py-5 px-2"></div>
-            <div id="1" class="col m-2 py-5 px-2"></div>
-            <div id="2" class="col m-2 py-5 px-2"></div>
-            <div id="3" class="col m-2 py-5 px-2"></div>
-            <div id="4" class="col m-2 py-5 px-2"></div>
+            <div id="0" class="col m-2 py-5 px-2">codenames</div>
+            <div id="1" class="col m-2 py-5 px-2">codenames</div>
+            <div id="2" class="col m-2 py-5 px-2">codenames</div>
+            <div id="3" class="col m-2 py-5 px-2">codenames</div>
+            <div id="4" class="col m-2 py-5 px-2">codenames</div>
             <div class="w-100"></div>
-            <div id="5" class="col m-2 py-5 px-2"></div>
-            <div id="6" class="col m-2 py-5 px-2"></div>
-            <div id="7" class="col m-2 py-5 px-2"></div>
-            <div id="8" class="col m-2 py-5 px-2"></div>
-            <div id="9" class="col m-2 py-5 px-2"></div>
+            <div id="5" class="col m-2 py-5 px-2">codenames</div>
+            <div id="6" class="col m-2 py-5 px-2">codenames</div>
+            <div id="7" class="col m-2 py-5 px-2">codenames</div>
+            <div id="8" class="col m-2 py-5 px-2">codenames</div>
+            <div id="9" class="col m-2 py-5 px-2">codenames</div>
             <div class="w-100"></div>
-            <div id="10" class="col m-2 py-5 px-2"></div>
-            <div id="11" class="col m-2 py-5 px-2"></div>
-            <div id="12" class="col m-2 py-5 px-2"></div>
-            <div id="13" class="col m-2 py-5 px-2"></div>
-            <div id="14" class="col m-2 py-5 px-2"></div>
+            <div id="10" class="col m-2 py-5 px-2">codenames</div>
+            <div id="11" class="col m-2 py-5 px-2">codenames</div>
+            <div id="12" class="col m-2 py-5 px-2">codenames</div>
+            <div id="13" class="col m-2 py-5 px-2">codenames</div>
+            <div id="14" class="col m-2 py-5 px-2">codenames</div>
             <div class="w-100"></div>
-            <div id="15" class="col m-2 py-5 px-2"></div>
-            <div id="16" class="col m-2 py-5 px-2"></div>
-            <div id="17" class="col m-2 py-5 px-2"></div>
-            <div id="18" class="col m-2 py-5 px-2"></div>
-            <div id="19" class="col m-2 py-5 px-2"></div>
+            <div id="15" class="col m-2 py-5 px-2">codenames</div>
+            <div id="16" class="col m-2 py-5 px-2">codenames</div>
+            <div id="17" class="col m-2 py-5 px-2">codenames</div>
+            <div id="18" class="col m-2 py-5 px-2">codenames</div>
+            <div id="19" class="col m-2 py-5 px-2">codenames</div>
             <div class="w-100"></div>
-            <div id="20" class="col m-2 py-5 px-2"></div>
-            <div id="21" class="col m-2 py-5 px-2"></div>
-            <div id="22" class="col m-2 py-5 px-2"></div>
-            <div id="23" class="col m-2 py-5 px-2"></div>
-            <div id="24" class="col m-2 py-5 px-2"></div>
+            <div id="20" class="col m-2 py-5 px-2">codenames</div>
+            <div id="21" class="col m-2 py-5 px-2">codenames</div>
+            <div id="22" class="col m-2 py-5 px-2">codenames</div>
+            <div id="23" class="col m-2 py-5 px-2">codenames</div>
+            <div id="24" class="col m-2 py-5 px-2">codenames</div>
         </div>
-        <div class="turn-container float-left">
-            <p class="text-uppercase">It's <span id="currentPlayer"></span> turn!</p>
-            <p class="text-uppercase text-danger" id="msg"></p>
+        <div class="turn-container float-left pt-2">
+            <p id="turn-display" class="text-uppercase">It's <span id="currentPlayer"></span> turn!</p>
+            <p class="text-uppercase" id="msg"></p>
         </div>
-        <div class="remaining-cards float-right text-right">
-            <p>Remaining cards: <span id="blue" class="blue-font"></span> - <span id="red" class="red-font"></span></p>
+        <div id="card-container" class="remaining-cards float-right text-right pt-2">
+            <p id ="card-display">Remaining cards: <span id="blue" class="blue-font"></span> - <span id="red" class="red-font"></span></p>
             <button class="btn btn-outline-info" id="next-player">Pass turn</button>
-            <button type="reset" class="nav-item btn btn-outline-info" id="reset">Start Game</button>
+            <button type="button" class="nav-item btn btn-outline-info" id="start">Start Game</button>
+            <button type="button" class="nav-item btn btn-outline-info" id="new-game">New Game</button>
         </div>
     </div>
 

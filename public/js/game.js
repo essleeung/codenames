@@ -1,6 +1,6 @@
-// var gameWords = ["fridge", "banana", "stars", "laser", "island", "mouse", "Hawaii", "lamp", "hi", "cat", "dog", "zebra", "fence", "comb", "tropics", "mountain", "pasta", "fever", "needle", "cup", "keys", "mirror", "tree", "fish", "tulip"]
-var board = document.getElementsByClassName("col")
-var currentPlayer = ""
+// var gameWords = ['fridge', 'banana', 'stars', 'laser', 'island', 'mouse', 'Hawaii', 'lamp', 'hi', 'cat', 'dog', 'zebra', 'fence', 'comb', 'tropics', 'mountain', 'pasta', 'fever', 'needle', 'cup', 'keys', 'mirror', 'tree', 'fish', 'tulip']
+var board = document.getElementsByClassName('col')
+var currentPlayer = ''
 var pickedWords = []
 var newWords = []
 var gameWords = []
@@ -16,8 +16,8 @@ class Team {
 }
 
 // create red & blue
-var red = new Team("red")
-var blue = new Team("blue")
+var red = new Team('red')
+var blue = new Team('blue')
 
 // function to print words onto board
 const printWords = () => {
@@ -34,37 +34,37 @@ const setBoard = (color, color2) => {
   color2.remainingCards = 8
   bystander = newWords.splice(0, 7)
   assassin = newWords.splice(0, 1)
-  console.log("bystander: " + bystander)
-  console.log("assassin: " + assassin)
+  console.log('bystander: ' + bystander)
+  console.log('assassin: ' + assassin)
   console.log(color)
   console.log(color2)
 }
 
 // function to update current player display
 const updatePlayer = () => {
-  document.getElementById("currentPlayer").textContent = currentPlayer + "'s"
-  if (currentPlayer == "red") {
+  document.getElementById('currentPlayer').textContent = currentPlayer + "'s"
+  if (currentPlayer == 'red') {
     //set current player to match color
-    document.getElementById("currentPlayer").setAttribute("class", "red-font")
+    document.getElementById('currentPlayer').setAttribute('class', 'red-font')
   } else {
-    document.getElementById("currentPlayer").setAttribute("class", "blue-font")
+    document.getElementById('currentPlayer').setAttribute('class', 'blue-font')
   }
 }
 //function to update remaining card display
 const updateRemainingCards = () => {
-  document.getElementById("blue").textContent = blue.remainingCards
-  document.getElementById("red").textContent = red.remainingCards
+  document.getElementById('blue').textContent = blue.remainingCards
+  document.getElementById('red').textContent = red.remainingCards
 }
 
-//game start function
-const startGame = () => {
+//initialize game function
+const initializeGame = () => {
   printWords()
   //randomize who goes first & set game board accordingly. first team gets 9 cards, 2nd team gets 8, 7 for the bystander & 1 card for the assassin
   if (Math.random() < 0.5) {
-    currentPlayer = "red"
+    currentPlayer = 'red'
     setBoard(red, blue)
   } else {
-    currentPlayer = "blue"
+    currentPlayer = 'blue'
     setBoard(blue, red)
   } //print current player onto board & remaining cards
   updatePlayer()
@@ -81,10 +81,12 @@ socket.on('new words', words => {
 })
 
 // start game on dom content load
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   socket.emit('get words')
   socket.emit('new words')
 
-  // add eventlistener to new game button
-  document.getElementById("reset").addEventListener("click", resetGame)
+  document.getElementById('start').addEventListener('click', startGame)
+  //add event listener to new game button
+  // document.getElementsById('new-game').addEventListener('click', newGame)
 })
+
