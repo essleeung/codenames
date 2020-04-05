@@ -50,6 +50,7 @@ const updatePlayer = () => {
     document.getElementById('currentPlayer').setAttribute('class', 'blue-font')
   }
 }
+
 //function to update remaining card display
 const updateRemainingCards = () => {
   document.getElementById('blue').textContent = blue.remainingCards
@@ -71,19 +72,5 @@ const initializeGame = () => {
   updateRemainingCards()
 }
 
-//client receives first set of words
-socket.on('get words', (words, words2) => {
-  gameWords = [...words]
-  newWords = [...words2]
-})
 
-
-// start game on dom content load
-document.addEventListener('DOMContentLoaded', () => {
-  // call to server to get first set of words
-  socket.emit('get words')
-  //add event listener to start game button
-  document.getElementById('start').addEventListener('click', startGame)
-  
-})
 

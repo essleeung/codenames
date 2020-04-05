@@ -63,6 +63,6 @@
   text-shadow: 0 0 0.2em grey, 0 0 0.2em whitesmoke;
 }
 
-#new-game, #turn-display, #card-display {
+#new-game, #next-player, #turn-display, #card-display, #toggle-btns {
   display: none;
 }

@@ -16,8 +16,8 @@
         <nav class="navbar navbar-expand-lg">
             <h1 class="navbar-brand">codenames</h1>
             <div class="navbar-nav nav ml-auto">
-                <a class="nav-item pr-3 pt-2" id="rules" href="./rules.html" target="_blank">Rules</a>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <a class="nav-item pr-3 pt-2" id="rules" href="rules.html" target="_blank">Rules</a>
+                <div id="toggle-btns" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label class="btn btn-info">
                         <input type="radio" name="view" class="nav-item" id="spymaster-mode">Spymaster
                     </label>
@@ -66,7 +66,7 @@
         </div>
         <div id="card-container" class="remaining-cards float-right text-right pt-2">
             <p id ="card-display">Remaining cards: <span id="blue" class="blue-font"></span> - <span id="red" class="red-font"></span></p>
-            <button class="btn btn-outline-info" id="next-player">Pass turn</button>
+            <button id="next-player" class="btn btn-outline-info">Pass turn</button>
             <button type="button" class="nav-item btn btn-outline-info" id="start">Start Game</button>
             <button type="button" class="nav-item btn btn-outline-info" id="new-game">New Game</button>
         </div>
@@ -81,7 +81,7 @@
     <script src="/js/game.js"></script>
     <script src="/js/toggle.js"></script>
     <script src="/js/turn.js"></script>
-    <script src="/js/end.js"></script>
+    <script src="/js/buttons.js"></script>
 </body>
 
 </html>
