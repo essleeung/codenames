@@ -2,8 +2,6 @@
 let express = require('express')
 let app = express()
 var fs = require('fs')
-var gameWords = []
-var newWords = []
 
 // Configure http and socket.io
 let http = require('http').Server(app)
@@ -41,32 +39,34 @@ const getWords = () => {
   //return a subset of 25 shuffled words
   return shuffle(allWords).splice(0, 25)
 }
-
+const randomizePlayer = () => {
+  if (Math.random() < 0.5) {
+    player = 'red'
+  } else {
+    player = 'blue'
+  }
+  return player
+}
 var nextWordsServer = []
 var shuffleServer = []
+
 // Define socket settings (listeners)
 io.on('connection', socket => {
   console.log('Someone has connected')
+
+  //send words & randomized player to client
+  socket.on('next game', () => {
+    nextWordsServer = getWords()
+    shuffleServer = (shuffle([...nextWordsServer]))
+    nextPlayer = randomizePlayer()
+    console.log("THIS GUYS IS GOING NEXT:", nextPlayer)
+    io.emit('next game', nextWordsServer, shuffleServer, nextPlayer)
+  })
 
   //card clicks
   socket.on('card click', word => {
     console.log(word)
     io.emit('card click', word)
-  })
-
-  //game started click
-  socket.on('starting click', gameState => {
-    console.log('server game state', gameState)
-    io.emit('starting click', gameState)
-  })
-
-  //send words to client
-  socket.on('next game', () => {
-    nextWordsServer = getWords()
-    shuffleServer = (shuffle([...nextWordsServer]))
-    // console.log('SERVER ROUND2:', nextWordsServer)
-    // console.log("SHUFFLE ROUND2 electric boogaloo", shuffleServer)
-    io.emit('next game', nextWordsServer, shuffleServer)
   })
 
 

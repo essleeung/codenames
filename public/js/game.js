@@ -1,10 +1,9 @@
 // var gameWords = ['fridge', 'banana', 'stars', 'laser', 'island', 'mouse', 'Hawaii', 'lamp', 'hi', 'cat', 'dog', 'zebra', 'fence', 'comb', 'tropics', 'mountain', 'pasta', 'fever', 'needle', 'cup', 'keys', 'mirror', 'tree', 'fish', 'tulip']
 var board = document.getElementsByClassName('col')
-var currentPlayer = ''
+var currentPlayer, gameState, assassin, bystander
 var pickedWords = []
 var newWords = []
 var gameWords = []
-var gameState, assassin, bystander
 
 //team constructor
 class Team {
@@ -46,16 +45,6 @@ const setBoard = (color, color2) => {
   document.getElementById('player-mode').addEventListener('click', togglePlayer)
 }
 
-// function to update current player display
-const updatePlayer = () => {
-  document.getElementById('currentPlayer').textContent = currentPlayer + "'s"
-  if (currentPlayer == 'red') {
-    //set current player to match color
-    document.getElementById('currentPlayer').setAttribute('class', 'red-font')
-  } else {
-    document.getElementById('currentPlayer').setAttribute('class', 'blue-font')
-  }
-}
 
 //function to update remaining card display
 const updateRemainingCards = () => {
@@ -77,18 +66,44 @@ const updateRemainingCards = () => {
 
 //initialize game function
 const initializeGame = () => {
+  updatePlayer()
   printWords()
-  //randomize who goes first & set game board accordingly. first team gets 9 cards, 2nd team gets 8, 7 for the bystander & 1 card for the assassin
-  if (Math.random() < 0.5) {
-    currentPlayer = 'red'
+  if (currentPlayer === 'red') {
     setBoard(red, blue)
   } else {
-    currentPlayer = 'blue'
     setBoard(blue, red)
-  } //print current player onto board & remaining cards
-  updatePlayer()
+  } 
+  //print current player onto board & remaining cards
+  displayElements()
+  console.log("WHY YOU DON'T UPDATE???", currentPlayer)  
   updateRemainingCards()
+  
 }
 
 
+//change player display
+const updatePlayer = () => {
+  if (currentPlayer === 'red') {
+    //set current player to match color
+    document.getElementById('currentPlayer').setAttribute('class', 'red-font')
+  } else {
+    document.getElementById('currentPlayer').setAttribute('class', 'blue-font')
+  }
+  document.getElementById('currentPlayer').textContent = currentPlayer + "'s"
+}
 
+//displays buttons and text
+const displayElements = () => {
+  //replace start game with new game button
+  document.getElementById('start').style.display = 'none'
+  document.getElementById('new-game').style.display = 'inline-block'
+  document.getElementById('new-game').addEventListener('click', newGame)
+  //show & add event listener on toggle buttons
+  document.getElementById('toggle-btns').style.display = 'inline-block'
+  //show turn & card text
+  document.getElementById('turn-display').style.display = 'block'
+  document.getElementById('card-display').style.display = 'block'
+  //show pass turn button
+  document.getElementById('next-player').style.display = 'inline-block'
+  document.getElementById('next-player').addEventListener('click', passTurn)
+}

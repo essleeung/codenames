@@ -1,14 +1,14 @@
 let diamond = '\u2B26'
 let circle = '\u20DD'
+
 //function to pass turn to other team
 const passTurn = () => {
     if (currentPlayer == 'red') {
         currentPlayer = 'blue'
-        updatePlayer()
     } else {
         currentPlayer = 'red'
-        updatePlayer()
     }
+    updatePlayer()
 }
 const clickCard = (e) => {
     var word = e.target.textContent
