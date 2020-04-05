@@ -4,7 +4,7 @@ var currentPlayer = ''
 var pickedWords = []
 var newWords = []
 var gameWords = []
-var assassin, bystander
+var gameState, assassin, bystander
 
 //team constructor
 class Team {
@@ -38,6 +38,12 @@ const setBoard = (color, color2) => {
   console.log('assassin: ' + assassin)
   console.log(color)
   console.log(color2)
+  //enable click on all squares & toggle buttons
+  for (const card of board) {
+    card.addEventListener('click', clickCard)
+  }
+  document.getElementById('spymaster-mode').addEventListener('click', toggleSpy)
+  document.getElementById('player-mode').addEventListener('click', togglePlayer)
 }
 
 // function to update current player display
@@ -53,8 +59,20 @@ const updatePlayer = () => {
 
 //function to update remaining card display
 const updateRemainingCards = () => {
-  document.getElementById('blue').textContent = blue.remainingCards
-  document.getElementById('red').textContent = red.remainingCards
+  if (blue.remainingCards === 0) {
+    document.getElementById('msg').textContent = 'BLUE team wins!'
+    document.getElementById('msg').style.color = '#4169e1'
+    document.getElementById('blue').textContent = blue.remainingCards
+    endGame()
+  } else if (red.remainingCards === 0) {
+    document.getElementById('msg').textContent = 'RED team wins!'
+    document.getElementById('msg').style.color = '#dc143c'
+    document.getElementById('red').textContent = red.remainingCards
+    endGame()
+  } else {
+    document.getElementById('blue').textContent = blue.remainingCards
+    document.getElementById('red').textContent = red.remainingCards
+  }
 }
 
 //initialize game function

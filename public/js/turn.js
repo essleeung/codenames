@@ -18,6 +18,7 @@ const clickCard = (e) => {
     if (assassin == word) {
         e.target.textContent = 'X'
         e.target.setAttribute('class', 'col m-1 py-1 px-2 pick-assassin')
+        document.getElementById('msg').textContent = 'GAME OVER! YOU CONTACTED THE ASSASSIN!'
         endGame()
         //Scenario: red team picks word correctly & gets another turn until they pass turn to blue
     } else if (currentPlayer == 'red' && (red.words.includes(word))) {
@@ -81,13 +82,6 @@ const clickCard = (e) => {
     }
 }
 
-//enable click on all squares
-console.log(board)
-for (const card of board) {
-    card.addEventListener('click', clickCard)
-}
-//add event listeners on pass turn buttons
-document.getElementById('next-player').addEventListener('click', passTurn)
 
 //receive neutral click from other team
 socket.on('card click', word => {

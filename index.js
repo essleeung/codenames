@@ -42,24 +42,11 @@ const getWords = () => {
   return shuffle(allWords).splice(0, 25)
 }
 
-// // these game words are for printing on the board
-// gameWords = getWords()
-// // this is another shuffled array to ensure teams don't get words in sequential order
-// newWords = shuffle([...gameWords])
-
 var nextWordsServer = []
 var shuffleServer = []
 // Define socket settings (listeners)
 io.on('connection', socket => {
   console.log('Someone has connected')
-
-  //function to shuffle and return words to client
-  // socket.on('get words', () => {
-  //   //server console log
-  //   console.log('ROUND 1 STEP11:', gameWords, "ROUND1 NEW", newWords)
-  //   io.emit('get words', gameWords, newWords)
-  // })
-  
 
   //card clicks
   socket.on('card click', word => {
@@ -67,12 +54,18 @@ io.on('connection', socket => {
     io.emit('card click', word)
   })
 
+  //game started click
+  socket.on('starting click', gameState => {
+    console.log('server game state', gameState)
+    io.emit('starting click', gameState)
+  })
+
   //send words to client
   socket.on('next game', () => {
     nextWordsServer = getWords()
     shuffleServer = (shuffle([...nextWordsServer]))
-    console.log('SERVER ROUND2:', nextWordsServer)
-    console.log("SHUFFLE ROUND2 electric boogaloo", shuffleServer)
+    // console.log('SERVER ROUND2:', nextWordsServer)
+    // console.log("SHUFFLE ROUND2 electric boogaloo", shuffleServer)
     io.emit('next game', nextWordsServer, shuffleServer)
   })
 
