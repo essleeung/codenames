@@ -9,7 +9,17 @@ const passTurn = () => {
         currentPlayer = 'red'
     }
     updatePlayer()
+    socket.emit('change player')
+    console.log("DING DING THIS PLAYA IS UP", currentPlayer)
 }
+
+socket.on('change player', player => {
+    currentPlayer = player
+    console.log("I CAUGHT IT:", currentPlayer)
+    updatePlayer()
+})
+
+
 const clickCard = (e) => {
     var word = e.target.textContent
     let redStyle = 'col m-1 px-2 pick-red'

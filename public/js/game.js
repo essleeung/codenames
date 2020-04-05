@@ -74,8 +74,7 @@ const initializeGame = () => {
     setBoard(blue, red)
   } 
   //print current player onto board & remaining cards
-  displayElements()
-  console.log("WHY YOU DON'T UPDATE???", currentPlayer)  
+  displayElements() 
   updateRemainingCards()
   
 }

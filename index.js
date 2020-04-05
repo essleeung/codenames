@@ -47,6 +47,16 @@ const randomizePlayer = () => {
   }
   return player
 }
+
+const changePlayer = () => {
+  if (player == 'red') {
+    player = 'blue'
+} else {
+    player = 'red'
+}
+  return player
+}
+
 var nextWordsServer = []
 var shuffleServer = []
 
@@ -59,9 +69,15 @@ io.on('connection', socket => {
     nextWordsServer = getWords()
     shuffleServer = (shuffle([...nextWordsServer]))
     nextPlayer = randomizePlayer()
-    console.log("THIS GUYS IS GOING NEXT:", nextPlayer)
     io.emit('next game', nextWordsServer, shuffleServer, nextPlayer)
   })
+
+//change player on pass turn
+socket.on('change player', ()  => {
+  player = changePlayer()
+  console.log("GOING FROM ONE TO ANOTHER:", player)
+  io.emit('change player', player)
+})
 
   //card clicks
   socket.on('card click', word => {

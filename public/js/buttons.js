@@ -40,14 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // getting game words round from server
 socket.on('next game', (words, words2, nextPlayer) => {
-    console.log("server gameWORDS ", words)
-    console.log("SERVER newWords", words2)
     gameWords = [...words]
     newWords = [...words2]
-    console.log("GET IT  red:", red.words, "new blue:", blue.words)
-    console.log("WHO GO NEXT?", nextPlayer)
     currentPlayer = nextPlayer
-    console.log("GOBBLYBOOK", currentPlayer)
+    removeStyle()
     initializeGame()
 })
 
