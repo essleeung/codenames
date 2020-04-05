@@ -39,9 +39,6 @@ const togglePlayer = () => {
     }
 }
 
-//add event listener on toggle buttons
-document.getElementById('spymaster-mode').addEventListener('click', toggleSpy)
-document.getElementById('player-mode').addEventListener('click', togglePlayer)
 
 
 

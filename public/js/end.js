@@ -2,12 +2,12 @@
 const shuffle = (array) => {
     let newArray = []
     while (newArray.length < array.length) {
-      let index = Math.floor(Math.random() * array.length)
-      if (!newArray.includes(array[index])) {
-        newArray.push(array[index])
-      }
+        let index = Math.floor(Math.random() * array.length)
+        if (!newArray.includes(array[index])) {
+            newArray.push(array[index])
+        }
     } return newArray
-  }
+}
 
 //function to remove styles
 const removeStyle = () => {
@@ -20,13 +20,17 @@ const removeStyle = () => {
 const startGame = () => {
     pickedWords = []
     document.getElementById('msg').textContent = ' '
-    initializeGame()
     //replace start game with new game button
     document.getElementById('start').style.display = 'none'
     document.getElementById('new-game').style.display = 'inline-block'
     document.getElementById('turn-display').style.display = 'block'
     document.getElementById('card-display').style.display = 'block'
     document.getElementById('new-game').addEventListener('click', newGame)
+    //add event listener on toggle buttons
+    document.getElementById('spymaster-mode').addEventListener('click', toggleSpy)
+    document.getElementById('player-mode').addEventListener('click', togglePlayer)
+
+    initializeGame()
 }
 const endGame = () => {
     document.getElementById('msg').textContent = 'Game over!'
@@ -39,25 +43,23 @@ const endGame = () => {
     document.getElementsByClassName('btn-group-toggle').disabled
 }
 
+//After finishing first game, can start a new round by making call to server for new words
 const newGame = () => {
     //go server side to get new words
-   
-    console.log("next round:", gameWords, "new words", newWords)
-    // socket.emit('next game', nextWords)
-    //send this back to other player (new shuffled words)
+    console.log("OLD WORDS:", gameWords, "new words", newWords)
+    socket.emit('next game')
     removeStyle()
-    startGame()
+    // startGame()
 }
 
-    
-// getting game words
-socket.on('next game', words => {
-    console.log("gameWORDS", words)
+
+// getting game words round 2
+socket.on('next game', (words, words2) => {
+    console.log("gameWORDS RD2", words)
+    console.log("SERVER DELIVERED RD2", words2)
     gameWords = [...words]
-    // newWords = [...words2]
-  })
-  
-//   socket.on('next shuffle', words => {
-//     newWords = [...words]
-//   })
-  
+    newWords = [...words2]
+    startGame()
+    console.log("GET IT New red:", red.words, "new blue:", blue.words)
+})
+

@@ -71,22 +71,19 @@ const initializeGame = () => {
   updateRemainingCards()
 }
 
-// getting game words
-socket.on('get words', words => {
+//client receives first set of words
+socket.on('get words', (words, words2) => {
   gameWords = [...words]
+  newWords = [...words2]
 })
 
-socket.on('new words', words => {
-  newWords = [...words]
-})
 
 // start game on dom content load
 document.addEventListener('DOMContentLoaded', () => {
+  // call to server to get first set of words
   socket.emit('get words')
-  socket.emit('new words')
-
+  //add event listener to start game button
   document.getElementById('start').addEventListener('click', startGame)
-  //add event listener to new game button
-  // document.getElementsById('new-game').addEventListener('click', newGame)
+  
 })
 

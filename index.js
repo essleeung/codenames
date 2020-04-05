@@ -47,24 +47,19 @@ gameWords = getWords()
 // this is another shuffled array to ensure teams don't get words in sequential order
 newWords = shuffle([...gameWords])
 
-var nextWords = []
-// var nextShuffled = []
-getWords()
-shuffle([...nextWords])
+var nextWordsServer = []
+var shuffleServer = []
 // Define socket settings (listeners)
 io.on('connection', socket => {
   console.log('Someone has connected')
-  console.log("nextWords", nextWords)
 
-  //first round of words on DOMContent load
+  //function to shuffle and return words to client
   socket.on('get words', () => {
-    console.log('Game words are:' + gameWords)
-    io.emit('get words', gameWords)
+    //server console log
+    console.log('ROUND 1 STEP11:', gameWords, "ROUND1 NEW", newWords)
+    io.emit('get words', gameWords, newWords)
   })
-  socket.on('new words', () => {
-    console.log('newWords are:' + newWords)
-    io.emit('new words', newWords)
-  })
+  
 
   //card clicks
   socket.on('card click', word => {
@@ -74,20 +69,13 @@ io.on('connection', socket => {
 
   //subsequent rounds words
   socket.on('next game', () => {
-    // nextWords = getWords()
-    nextWords = getWords()
-    console.log("nextWords shuffle 2: electric boogaloo", shuffle([...nextWords]))
-    console.log(shuffle([...nextWords]))
-    console.log('next round GW:', nextWords)
-    io.emit('next game', nextWords)
+    nextWordsServer = getWords()
+    shuffleServer = (shuffle([...nextWordsServer]))
+    console.log('SERVER ROUND2:', nextWordsServer)
+    console.log("SHUFFLE ROUND2 electric boogaloo", shuffleServer)
+    io.emit('next game', nextWordsServer, shuffleServer)
   })
-  // socket.on('next shuffle', () => {
-  //   // nextShuffled = shuffle([...nextWords])
-  //   nextShuffled = shuffle([...nextWords])
 
-  //   console.log('next shuffle GW:', nextShuffled)
-  //   io.emit('next game', nextShuffled)
-  // })
 
   //on disconnect
   socket.on('disconnect', () => {
