@@ -3,6 +3,7 @@ let express = require('express')
 let app = express()
 var fs = require('fs')
 
+
 // Configure http and socket.io
 let http = require('http').Server(app)
 let io = require('socket.io')(http)
@@ -13,6 +14,13 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html')
 })
 
+
+// ========VARIABLES=========
+var nextWordsServer = []
+var shuffleServer = []
+
+
+// ========FUNCTIONS=========
 // shuffle function
 const shuffle = (array) => {
   let newArray = []
@@ -39,6 +47,7 @@ const getWords = () => {
   //return a subset of 25 shuffled words
   return shuffle(allWords).splice(0, 25)
 }
+//function to randomize starting team
 const randomizePlayer = () => {
   if (Math.random() < 0.5) {
     player = 'red'
@@ -48,18 +57,7 @@ const randomizePlayer = () => {
   return player
 }
 
-const changePlayer = () => {
-  if (player == 'red') {
-    player = 'blue'
-} else {
-    player = 'red'
-}
-  return player
-}
-
-var nextWordsServer = []
-var shuffleServer = []
-
+// ========LISTENERS=========
 // Define socket settings (listeners)
 io.on('connection', socket => {
   console.log('Someone has connected')
@@ -72,11 +70,11 @@ io.on('connection', socket => {
     io.emit('next game', nextWordsServer, shuffleServer, nextPlayer)
   })
 
-//change player on pass turn
-socket.on('change player', ()  => {
-  player = changePlayer()
-  console.log("GOING FROM ONE TO ANOTHER:", player)
+// change player on pass turn
+  socket.on('change player', currentPlayer  => {
+ player = currentPlayer
   io.emit('change player', player)
+  console.log("SENDING THEM THIS BAD BOY:", player)
 })
 
   //card clicks

@@ -1,11 +1,12 @@
-// var gameWords = ['fridge', 'banana', 'stars', 'laser', 'island', 'mouse', 'Hawaii', 'lamp', 'hi', 'cat', 'dog', 'zebra', 'fence', 'comb', 'tropics', 'mountain', 'pasta', 'fever', 'needle', 'cup', 'keys', 'mirror', 'tree', 'fish', 'tulip']
+//GLOBAL VARIABLES
 var board = document.getElementsByClassName('col')
 var currentPlayer, gameState, assassin, bystander
 var pickedWords = []
 var newWords = []
 var gameWords = []
 
-//team constructor
+
+//CONSTRUCTORS
 class Team {
   constructor(color) {
     this.teamName = color
@@ -14,10 +15,12 @@ class Team {
   }
 }
 
-// create red & blue
+// create red & blue teams
 var red = new Team('red')
 var blue = new Team('blue')
 
+
+//FUNCTIONS TO SET UP THE GAME 
 // function to print words onto board
 const printWords = () => {
   for (let i = 0; i < gameWords.length; i++) {
@@ -64,22 +67,6 @@ const updateRemainingCards = () => {
   }
 }
 
-//initialize game function
-const initializeGame = () => {
-  updatePlayer()
-  printWords()
-  if (currentPlayer === 'red') {
-    setBoard(red, blue)
-  } else {
-    setBoard(blue, red)
-  } 
-  //print current player onto board & remaining cards
-  displayElements() 
-  updateRemainingCards()
-  
-}
-
-
 //change player display
 const updatePlayer = () => {
   if (currentPlayer === 'red') {
@@ -105,4 +92,20 @@ const displayElements = () => {
   //show pass turn button
   document.getElementById('next-player').style.display = 'inline-block'
   document.getElementById('next-player').addEventListener('click', passTurn)
+}
+
+
+//initialize game function
+const initializeGame = () => {
+  updatePlayer()
+  printWords()
+  if (currentPlayer === 'red') {
+    setBoard(red, blue)
+  } else {
+    setBoard(blue, red)
+  } 
+  //print current player onto board & remaining cards
+  displayElements() 
+  updateRemainingCards()
+  
 }

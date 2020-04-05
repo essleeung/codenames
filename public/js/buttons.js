@@ -38,7 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
-// getting game words round from server
+
+
+// getting new game info from server
 socket.on('next game', (words, words2, nextPlayer) => {
     gameWords = [...words]
     newWords = [...words2]
@@ -47,3 +49,7 @@ socket.on('next game', (words, words2, nextPlayer) => {
     initializeGame()
 })
 
+socket.on('end game', click = () => {
+    endGame()
+    console.log('yOU GUYS LSOT!')
+})
