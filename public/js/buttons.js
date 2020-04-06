@@ -26,6 +26,7 @@ const endGame = () => {
     for (const card of board) {
         card.removeEventListener('click', clickCard)
     }
+    document.getElementById('msg').textContent = 'GAME OVER! THE ASSASSIN WAS CONTACTED!'
     document.getElementById('next-player').removeEventListener('click', passTurn)
     document.getElementById('spymaster-mode').removeEventListener('click', toggleSpy)
     document.getElementById('player-mode').removeEventListener('click', togglePlayer)
