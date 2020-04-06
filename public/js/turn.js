@@ -24,6 +24,7 @@ const clickCard = (e) => {
     if (assassin == word) {
         e.target.textContent = 'X'
         e.target.setAttribute('class', 'col m-1 py-1 px-2 pick-assassin')
+        document.getElementById('msg').textContent = 'GAME OVER! YOU HAVE CONTACTED THE ASSASSIN!'
         endGame()
         socket.emit('card click', word)
         //SCENARIO: red team picks word correctly & gets another turn until they pass turn to blue
@@ -115,6 +116,7 @@ socket.on('card click', word => {
             passTurn()
         } else if ((card.textContent === word)) {
             card.textContent = 'X'
+            document.getElementById('msg').textContent = 'GAME OVER! YOU HAVE CONTACTED THE ASSASSIN!'
             card.setAttribute('class', 'col m-1 py-1 px-2 pick-assassin')
             endGame()
         }
