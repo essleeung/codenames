@@ -10,4 +10,4 @@ npx nodemon index.js
 ```
 
 ## Shoutouts!
-Thanks to [Jackson Owens] (https://github.com/jbowens) for the words list!
+Thanks to [Jackson Owens](https://github.com/jbowens) for the words list!

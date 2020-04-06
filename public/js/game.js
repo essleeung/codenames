@@ -36,10 +36,6 @@ const setBoard = (color, color2) => {
   color2.remainingCards = 8
   bystander = newWords.splice(0, 7)
   assassin = newWords.splice(0, 1)
-  console.log('bystander: ' + bystander)
-  console.log('assassin: ' + assassin)
-  console.log(color)
-  console.log(color2)
   //enable click on all squares & toggle buttons
   for (const card of board) {
     card.addEventListener('click', clickCard)
