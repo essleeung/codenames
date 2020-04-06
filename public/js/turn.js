@@ -30,7 +30,6 @@ const clickCard = (e) => {
     } else if (currentPlayer == 'red' && (red.words.includes(word))) {
         //add selected word to keep track
         pickedWords.push(word)
-        console.log(pickedWords)
         //display and style selection of red card
         e.target.textContent = diamond
         e.target.setAttribute('class', redStyle)
@@ -42,7 +41,6 @@ const clickCard = (e) => {
     } else if (currentPlayer == 'red' && (blue.words.includes(word))) {
         //add selected word to keep track
         pickedWords.push(word)
-        console.log(pickedWords)
         //display and style selection of blue card
         e.target.textContent = circle
         e.target.setAttribute('class', blueStyle)
@@ -56,7 +54,6 @@ const clickCard = (e) => {
     } else if (currentPlayer == 'blue' && (blue.words.includes(word))) {
         //add selected word to keep track
         pickedWords.push(word)
-        console.log(pickedWords)
         //display and style selection of blue card
         e.target.textContent = circle
         e.target.setAttribute('class', blueStyle)
@@ -68,7 +65,6 @@ const clickCard = (e) => {
     } else if (currentPlayer == 'blue' && (red.words.includes(word))) {
         //add selected word to keep track
         pickedWords.push(word)
-        console.log(pickedWords)
         //display and style selection of red card
         e.target.textContent = diamond
         e.target.setAttribute('class', redStyle)
@@ -81,7 +77,6 @@ const clickCard = (e) => {
         //SCENARIO: either team picks bystander card, turn ends      
     } else if (bystander.includes(word)) {
         pickedWords.push(word)
-        console.log(pickedWords)
         //display and style selection of bystander card
         e.target.setAttribute('class', 'col m-1 pb-1 px-2 pick-bystander')
         e.target.textContent = ' - '
@@ -102,7 +97,6 @@ socket.on('card click', word => {
             card.setAttribute('class', redStyle)
             card.textContent = diamond
             pickedWords.push(word)
-            console.log(pickedWords)
             //update remaining cards
             red.remainingCards = red.remainingCards - 1
             updateRemainingCards()
@@ -111,7 +105,6 @@ socket.on('card click', word => {
             card.setAttribute('class', blueStyle)
             card.textContent = circle
             pickedWords.push(word)
-            console.log(pickedWords)
             //update remaining cards
             blue.remainingCards = blue.remainingCards - 1
             updateRemainingCards()
@@ -119,10 +112,7 @@ socket.on('card click', word => {
             card.setAttribute('class', 'col m-1 pb-1 px-2 pick-bystander')
             card.textContent = ' - '
             pickedWords.push(word)
-            console.log("OLD PLAYER:", currentPlayer)
             passTurn()
-            console.log("NEW PLAYA", currentPlayer)
-            console.log(pickedWords)
         } else if ((card.textContent === word)) {
             card.textContent = 'X'
             card.setAttribute('class', 'col m-1 py-1 px-2 pick-assassin')
@@ -135,6 +125,5 @@ socket.on('card click', word => {
 //receive player update
 socket.on('change player', player => {
     currentPlayer = player
-    console.log("I CAUGHT IT:", currentPlayer)
     updatePlayer()
 })

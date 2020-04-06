@@ -52,5 +52,4 @@ socket.on('next game', (words, words2, nextPlayer) => {
 
 socket.on('end game', click = () => {
     endGame()
-    console.log('yOU GUYS LSOT!')
 })

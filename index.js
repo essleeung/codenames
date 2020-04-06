@@ -74,7 +74,6 @@ io.on('connection', socket => {
   socket.on('change player', currentPlayer  => {
  player = currentPlayer
   io.emit('change player', player)
-  console.log("SENDING THEM THIS BAD BOY:", player)
 })
 
   //card clicks
