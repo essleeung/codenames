@@ -6,7 +6,7 @@ _Adapted from this [official game.](https://czechgames.com/files/rules/codenames
 ## Installation and usage
 Use npm to install express, ms, socket.io & nodemon. Runs locally on port 3000.
 ```bash
-node index.js
+nodemon
 ```
 
 ## Shoutouts!
