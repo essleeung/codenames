@@ -4,7 +4,7 @@ codenames is an online game based off the popular board game by Czech Games. Thi
 _Adapted from this [official game.](https://czechgames.com/files/rules/codenames-rules-en.pdf)_
 
 ## Installation and usage
-Use npm to install express & nodemon. Runs locally on port 3000.
+Use npm to install express, ms, socket.io & nodemon. Runs locally on port 3000.
 ```bash
 npx nodemon index.js
 ```
