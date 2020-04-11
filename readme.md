@@ -4,12 +4,12 @@ codenames is an online game based off the popular board game by Czech Games. Thi
 _Adapted from this [official game.](https://czechgames.com/files/rules/codenames-rules-en.pdf)_
 
 ## Installation and usage
-Install express & nodemon. Start application(localhost:3000)
+Use npm to install express, socket.io & nodemon. Runs locally on port 3000.
 ```bash
-nodemon 
+nodemon
 ```
 ## Site is available here: 
 https://codenames-ga.herokuapp.com/
 
 ## Shoutouts!
-Thanks to [Jackson Owens](https://github.com/jbowens) for the words list!
+Thanks to Jackson Owens (https://github.com/jbowens) for the words list!
