@@ -1,8 +1,8 @@
 //GLOBAL VARIABLES
 let diamond = '\u2B26'
 let circle = '\u20DD'
-let redStyle = 'col m-1 px-2 pick-red'
-let blueStyle = 'col m-1 pt-3 px-2 pick-blue'
+let redStyle = 'col5 m-1 px-2 pick-red'
+let blueStyle = 'col5 m-1 pt-3 px-2 pick-blue'
 
 //function to pass turn to other team
 const passTurn = () => {
@@ -23,7 +23,7 @@ const clickCard = (e) => {
     //SCENARIO: Assassin card gets picked & game ends
     if (assassin == word) {
         e.target.textContent = 'X'
-        e.target.setAttribute('class', 'col m-1 py-1 px-2 pick-assassin')
+        e.target.setAttribute('class', 'col5 m-1 py-1 px-2 pick-assassin')
         document.getElementById('msg').textContent = 'GAME OVER! YOU HAVE CONTACTED THE ASSASSIN!'
         endGame()
         socket.emit('card click', word)
@@ -79,7 +79,7 @@ const clickCard = (e) => {
     } else if (bystander.includes(word)) {
         pickedWords.push(word)
         //display and style selection of bystander card
-        e.target.setAttribute('class', 'col m-1 pb-1 px-2 pick-bystander')
+        e.target.setAttribute('class', 'col5 m-1 pb-1 px-2 pick-bystander')
         e.target.textContent = ' - '
         //emit card click back to server & catching word to blast to everyone
         socket.emit('card click', word)
@@ -110,14 +110,14 @@ socket.on('card click', word => {
             blue.remainingCards = blue.remainingCards - 1
             updateRemainingCards()
         } else if ((card.textContent === word) && (bystander.includes(word))) {
-            card.setAttribute('class', 'col m-1 pb-1 px-2 pick-bystander')
+            card.setAttribute('class', 'col5 m-1 pb-1 px-2 pick-bystander')
             card.textContent = ' - '
             pickedWords.push(word)
             passTurn()
         } else if ((card.textContent === word)) {
             card.textContent = 'X'
             document.getElementById('msg').textContent = 'GAME OVER! YOU HAVE CONTACTED THE ASSASSIN!'
-            card.setAttribute('class', 'col m-1 py-1 px-2 pick-assassin')
+            card.setAttribute('class', 'col5 m-1 py-1 px-2 pick-assassin')
             endGame()
         }
     }

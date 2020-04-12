@@ -2,18 +2,28 @@
     box-sizing: border-box;
     font-weight: 700;
   }
+
+body {
+  max-height: 80vh;
+}
+
 .navbar-brand {
   font-size: 2em;
 }
 #rules {
   font-size: 1.1em;
 }
-.col {
+#board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+.col5 {
   border: 6px solid whitesmoke; 
   box-shadow: 2px 1px 0 grey;
   border-radius: 10px;
   background-color: #F8DFD3;
-    
+ 
 }
 .blue-font {
   color: royalblue;
@@ -65,5 +75,4 @@
 
 #new-game, #next-player, #turn-display, #card-display, #toggle-btns {
   display: none;
-
 }

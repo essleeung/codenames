@@ -1,7 +1,7 @@
 //function to remove styles
 const removeStyle = () => {
     for (let i = 0; i < gameWords.length; i++) {
-        document.getElementById(i).setAttribute('class', 'col m-2 py-5 px-2')
+        document.getElementById(i).setAttribute('class', 'col5 m-2 py-5 px-2')
     }
     document.getElementById('msg').textContent = ''
 }

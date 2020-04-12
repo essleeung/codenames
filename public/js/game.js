@@ -1,5 +1,5 @@
 //GLOBAL VARIABLES
-var board = document.getElementsByClassName('col')
+var board = document.getElementsByClassName('col5')
 var currentPlayer, gameState, assassin, bystander
 var pickedWords = []
 var newWords = []
