@@ -31,14 +31,15 @@ HTML, CSS/Bootstrap, JS, Express and Socket.io
     * Themed versions of the game (e.g. Harry Potter) or other language support
 
 ## Screenshots of game play
-![screenshot of starting screen](cn-start-game.png)
 **Starting screen**
-
-![screenshot of spymaster view](cn-spymaster-view.png)
+![screenshot of starting screen](cn-start-game.png)
+---
 **Spymaster view**
-
-![screenshot of game play](cn-gameplay.png)
+![screenshot of spymaster view](cn-spymaster-view.png)
+---
 **Game in play**
+![screenshot of game play](cn-gameplay.png)
+---
 
 
 ## Shoutouts!
