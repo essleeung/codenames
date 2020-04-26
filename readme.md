@@ -30,6 +30,12 @@ HTML, CSS/Bootstrap, JS, Express and Socket.io
     * Different rooms for multiple groups to play separately and identification of players on each team.
     * Themed versions of the game (e.g. Harry Potter) or other language support
 
+## Screenshots of game play
+![screenshot of starting screen](cn-start-game.png)
+![screenshot of spymaster view](cn-spymaster-view.png)
+![screenshot of game play](cn-gameplay.png)
+
+
 ## Shoutouts!
 Thanks to Jackson Owens (https://github.com/jbowens) for the words list!
 
