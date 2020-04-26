@@ -32,8 +32,13 @@ HTML, CSS/Bootstrap, JS, Express and Socket.io
 
 ## Screenshots of game play
 ![screenshot of starting screen](cn-start-game.png)
+**Starting screen**
+
 ![screenshot of spymaster view](cn-spymaster-view.png)
+**Spymaster view**
+
 ![screenshot of game play](cn-gameplay.png)
+**Game in play**
 
 
 ## Shoutouts!
